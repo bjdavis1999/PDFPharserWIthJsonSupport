@@ -1,0 +1,1 @@
+[{"Ticker":"AXP","Date":"11/12/2015","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":72.72,"h":72.79,"l":71.823,"c":71.98}},{"Ticker":"AXP","Date":"02/10/2016","SaleType":"S","PurchaseMin":15001,"PurchaseMax":50000,"priceData":{"o":53.0,"h":53.43,"l":52.28,"c":52.29}}]

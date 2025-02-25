@@ -1,0 +1,1 @@
+[{"Ticker":"AMD","Date":"05/04/2020","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":49.82,"h":52.61,"l":49.73,"c":52.56}},{"Ticker":"AMD","Date":"05/12/2020","SaleType":"S","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":56.21,"h":56.58,"l":53.75,"c":53.76}}]

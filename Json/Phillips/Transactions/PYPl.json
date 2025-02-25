@@ -1,0 +1,1 @@
+[{"Ticker":"PYPL","Date":"05/13/2020","SaleType":"S","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":140.2,"h":145.1,"l":139.61,"c":143.73}},{"Ticker":"PYPL","Date":"08/10/2020","SaleType":"S","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":198.7,"h":199.85,"l":191.69,"c":193.32}}]

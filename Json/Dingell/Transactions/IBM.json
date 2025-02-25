@@ -1,0 +1,1 @@
+[{"Ticker":"IBM","Date":"10/21/2015","SaleType":"S","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":134.082,"h":136.386,"l":133.174,"c":134.723}},{"Ticker":"IBM","Date":"08/14/2017","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":135.755,"h":136.482,"l":135.698,"c":136.061}}]

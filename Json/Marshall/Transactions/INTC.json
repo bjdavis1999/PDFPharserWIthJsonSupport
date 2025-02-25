@@ -1,0 +1,1 @@
+[{"Ticker":"INTC","Date":"09/02/2020","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":51.21,"h":52.68,"l":51.09,"c":52.25}},{"Ticker":"INTC","Date":"09/15/2020","SaleType":"S","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":49.79,"h":50.6,"l":49.73,"c":50.0}}]

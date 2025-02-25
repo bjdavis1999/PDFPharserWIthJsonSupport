@@ -1,0 +1,1 @@
+[{"Ticker":"AMZN","Date":"12/8/2015","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":33.157,"h":34.0,"l":32.99,"c":33.867}},{"Ticker":"AMZN","Date":"03/29/2018","SaleType":"S","PurchaseMin":15001,"PurchaseMax":50000,"priceData":{"o":70.3,"h":72.774,"l":68.26,"c":72.367}}]

@@ -1,0 +1,1 @@
+[{"Ticker":"BA","Date":"02/12/2016","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":105.12,"h":109.84,"l":105.0,"c":108.63}},{"Ticker":"BA","Date":"02/14/2017","SaleType":"s","PurchaseMin":15001,"PurchaseMax":50000,"priceData":{"o":167.7,"h":168.8,"l":167.22,"c":168.5}}]

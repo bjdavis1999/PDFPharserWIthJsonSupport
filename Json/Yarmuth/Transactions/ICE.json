@@ -1,0 +1,1 @@
+[{"Ticker":"ICE","Date":"09/17/2020","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":99.86,"h":100.4,"l":99.24,"c":99.96}},{"Ticker":"ICE","Date":"01/11/2021","SaleType":"S","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":117.18,"h":118.805,"l":116.86,"c":117.65}}]

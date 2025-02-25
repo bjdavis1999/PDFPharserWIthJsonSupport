@@ -1,0 +1,1 @@
+[{"Ticker":"HPQ","Date":"06/02/2020","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":15.24,"h":15.87,"l":15.01,"c":15.79}},{"Ticker":"HPQ","Date":"02/09/2022","SaleType":"S","PurchaseMin":15001,"PurchaseMax":50000,"priceData":{"o":38.17,"h":38.5,"l":37.8,"c":38.4}}]

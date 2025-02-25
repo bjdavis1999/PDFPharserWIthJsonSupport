@@ -1,0 +1,1 @@
+[{"Ticker":"CBOE","Date":"11/24/2021","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":128.7,"h":132.15,"l":128.26,"c":130.96}},{"Ticker":"CBOE","Date":"12/17/2021","SaleType":"S","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":131.89,"h":132.05,"l":128.1,"c":128.25}}]

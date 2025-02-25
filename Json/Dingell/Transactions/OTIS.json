@@ -1,0 +1,1 @@
+[{"Ticker":"OTIS","Date":"04/03/2020","SaleType":"E","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":43.75,"h":49.3,"l":41.8,"c":47.32}},{"Ticker":"OTIS","Date":"06/18/2021","SaleType":"S","PurchaseMin":15001,"PurchaseMax":50000,"priceData":{"o":79.76,"h":80.17,"l":78.925,"c":79.5}}]

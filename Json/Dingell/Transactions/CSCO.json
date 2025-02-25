@@ -1,0 +1,1 @@
+[{"Ticker":"CSCO","Date":"11/15/2017","SaleType":"P","PurchaseMin":15001,"PurchaseMax":50000,"priceData":{"o":33.97,"h":34.31,"l":33.75,"c":34.11}},{"Ticker":"CSCO","Date":"02/22/2018","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":43.49,"h":43.56,"l":42.75,"c":42.94}}]

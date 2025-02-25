@@ -1,0 +1,1 @@
+[{"Ticker":"MSFT","Date":"09/15/2015","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":43.19,"h":44.29,"l":43.08,"c":43.98}},{"Ticker":"MSFT","Date":"09/19/2016","SaleType":"s","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":57.27,"h":57.75,"l":56.85,"c":56.93}}]

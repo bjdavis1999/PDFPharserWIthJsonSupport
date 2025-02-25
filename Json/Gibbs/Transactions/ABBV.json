@@ -1,0 +1,1 @@
+[{"Ticker":"ABBV","Date":"11/17/2020","SaleType":"P","PurchaseMin":15001,"PurchaseMax":50000,"priceData":{"o":99.37,"h":100.26,"l":98.74,"c":99.21}},{"Ticker":"ABBV","Date":"11/26/2021","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":117.61,"h":118.11,"l":115.83,"c":116.51}}]

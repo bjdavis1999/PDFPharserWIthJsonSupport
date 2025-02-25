@@ -1,0 +1,1 @@
+[{"Ticker":"ATVI","Date":"05/13/2020","SaleType":"S","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":72.51,"h":75.01,"l":71.97,"c":73.67}},{"Ticker":"ATVI","Date":"09/15/2020","SaleType":"P","PurchaseMin":15001,"PurchaseMax":50000,"priceData":{"o":80.0,"h":82.209,"l":79.78,"c":81.75}}]

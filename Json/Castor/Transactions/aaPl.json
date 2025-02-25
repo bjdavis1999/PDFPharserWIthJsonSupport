@@ -1,0 +1,1 @@
+[{"Ticker":"AAPL","Date":"02/26/2016","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":24.3,"h":24.506,"l":24.145,"c":24.228}},{"Ticker":"AAPL","Date":"03/15/2017","SaleType":"s","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":34.853,"h":35.188,"l":34.756,"c":35.115}}]

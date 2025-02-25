@@ -1,0 +1,1 @@
+[{"Ticker":"AMTD","Date":"06/16/2020","SaleType":"S","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":37.65,"h":39.0,"l":37.65,"c":39.0}},{"Ticker":"AMTD","Date":"10/06/2020","SaleType":"E","PurchaseMin":15001,"PurchaseMax":50000,"priceData":{"o":41.1,"h":41.7,"l":40.38,"c":41.04}}]

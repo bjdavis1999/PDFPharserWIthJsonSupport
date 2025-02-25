@@ -1,0 +1,1 @@
+[{"Ticker":"CAT","Date":"05/13/2020","SaleType":"S","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":105.14,"h":105.29,"l":102.55,"c":104.48}},{"Ticker":"CAT","Date":"09/23/2020","SaleType":"P","PurchaseMin":1001,"PurchaseMax":15000,"priceData":{"o":147.48,"h":148.91,"l":143.604,"c":144.38}}]
