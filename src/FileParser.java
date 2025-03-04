@@ -18,9 +18,18 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * used to extract data from a file
+ */
 public class FileParser {
 
     // used to parse data from JSON and return a string list
+
+    /**
+     * returns a list of congress names from a json file
+     * @param path path to JSON file
+     * @return
+     */
     public ArrayList<String> congressNamesFromJson(String path) {
 
         // list to be returned
@@ -73,6 +82,12 @@ public class FileParser {
 
     }
 
+    /**
+     * gets the pdf identifiers and year for all transactions in zip
+     * adds them to the correct congress member
+     * @param congress map of congress members
+     * @throws FileNotFoundException
+     */
     public void extractAllPdfFileNames(HashMap<String,CongressMember> congress) throws FileNotFoundException {
 
         //gets the current year and subtracts the farthest year we have data for
@@ -91,7 +106,15 @@ public class FileParser {
     }
 
 
-    // extracts the name of the pdf files from the unzipped xml files for all congresspeople Stores it as a DocID and stores the ear for later retrieval from website
+    // extracts the name of the pdf files from the unzipped xml files for all congresspeople Stores it as a DocID and stores the
+    // ear for later retrieval from website
+
+    /**extracts gets the pdf identifiers and year for a unziped xml file
+     *
+     * @param fileName name of file being extracted from
+     * @param congress map of congress members
+     * @throws FileNotFoundException
+     */
     void extractPdfFileName(String fileName, HashMap<String,CongressMember> congress) throws FileNotFoundException {
 
 
@@ -143,63 +166,18 @@ public class FileParser {
         }
 
     }
-    /*
-    void extractPdfFileName(String fileName) throws FileNotFoundException {
 
-
-        // stores the path to the xml document that has all fillings listed for a year
-        File file = new File("Zips/unzipped/"+ fileName);
-        // scanner used to go through document
-        Scanner scan = new Scanner(file);
-        //loops through file
-        while (scan.hasNext()){
-
-            // stores next line in file to string
-            String line = scan.nextLine();
-            // checks for the last name tag in the line if found starts creating or updating a congress person
-            if (line.contains("Last")) {
-
-
-                String Name = getString(line, '<', 10);
-                if (congress.containsKey(Name)) {
-
-                    // first makes a temp congress member
-                    CongressMember Temp = congress.get(Name);
-
-
-                    // moves scanner lines to the next line needed
-                    line = moveXLines(scan, 2);
-
-                    // if the filling is the correct type continues process
-                    if (line.charAt(16) == 'P') {
-
-                        PdfIdentifier TempIdentifier = new PdfIdentifier();
-                        // moves down a line
-                        line = moveXLines(scan, 1);
-                        // gets the year of the filling
-                        TempIdentifier.year = getString(line, '<', 10);
-                        // moves down another line
-                        line = moveXLines(scan, 1);
-                        // gets the document id of the filling
-                        TempIdentifier.DocID = getString(line, '<', 11);
-                        // updates the congress member
-                        Temp.pdfIdentifiers.add(TempIdentifier);
-
-                    }
-
-
-                    congress.put(Name, Temp);
-
-                }
-            }
-        }
-
-    }
-
-     */
 
 
     // advances a counter to the correct index of a string takes a starting index and a char to find
+
+    /**
+     * takes a string and moves a index to a chosen char in the string
+     * @param line string being parsed
+     * @param character char being moved 2
+     * @param Index starting index in line
+     * @return returns new index
+     */
     private int moveIndexToChar(String line,char character,int Index){
 
         // moves index tell it finds char value
@@ -212,6 +190,13 @@ public class FileParser {
     }
 
     // moves a scanner object x number of lines in order to advance to required info
+
+    /**
+     * moves scanner x number of lines
+     * @param scan scanner object
+     * @param index number of lines to skip
+     * @return new line
+     */
     private String moveXLines(Scanner scan,int index){
 
         // moves line x number of times
@@ -231,6 +216,14 @@ public class FileParser {
 
     // gets all the char in a string from a given start index tell it finds an ending char
     // can take a null value to stop when char are no longer an int value will skip , to get a parsable value
+
+    /**
+     * gets a string form a index to a chosen char
+     * @param line string being parsed
+     * @param character character moving 2
+     * @param Index starting index
+     * @return string result
+     */
     private String getString(String line,Character character,int Index){
 
 
@@ -274,6 +267,12 @@ public class FileParser {
     }
 
     // checks if a char is an int value 0-9
+
+    /**
+     * checks if a char value is a int
+     * @param character char being checked
+     * @return
+     */
     private boolean isCharInt(char character){
         return character >= '0' && character <= '9';
 
@@ -284,6 +283,14 @@ public class FileParser {
 
     // gets the transactions for any congressperson by using the index they are stores in the congress object used to store all
     // congresspeople stores data in the transactions arraylist for given congressperson
+
+    /**
+     * gets the transactions for any congressperson by using the identifiers
+     * they are stores in the congress object used to store all
+     * @param congress map of congress members
+     * @param name name of congress member being updated
+     * @throws IOException
+     */
     public void getCongressMemberTransactions(HashMap<String,CongressMember> congress,String name) throws IOException {
 
 
@@ -322,6 +329,12 @@ public class FileParser {
     }
 
 
+    /**
+     * gets the transaction information form a pdf in a string format
+     * @param text psf in string form
+     * @param congress map of congress
+     * @param name name of congress member being uodated
+     */
     // gets the transaction data from pdfs note a pdf can have more than one transaction likely many
     public void getStockDataFromPDFText(String text, HashMap<String,CongressMember> congress, String name){
 
@@ -367,6 +380,13 @@ public class FileParser {
     // checks if a line contains a trade type indicator returns true if it has one that indicates a stock or if it is missing one
     // because of how some of the pdfs are set up we will need to verify if tickers are a valid stock when getting price info
     // however this function lets me reduce the amount of invalid transactions needed to be sorted through when pricing
+
+    /**
+     * checks if a string contains test that indicates a stock trade
+     * @param currentLine string being checked
+     * @return bool true if it contains an indicator or no indicator is
+     * present and false if the wrong indicator is present
+     */
     private boolean ContainsStockTradeIndicator(String currentLine){
 
         // checks for ST the trade type indicator for stocks always contained within []
@@ -379,6 +399,12 @@ public class FileParser {
 
     // used to get a price from the price range
 
+    /**
+     * gets a price from a pdf stirng for transaction can be min or max of range
+     * @param currentLine string being parsed
+     * @param index were to start from
+     * @return
+     */
     private int getPrice(String currentLine,int index){
 
         // makes sure price is a valid price there are cases were .01 is reported or an improper range is used for certain transaction
@@ -393,6 +419,13 @@ public class FileParser {
     }
 
     // get transaction data from a string and store it to congress persons transactions
+
+    /**
+     * gets all necessary transaction info from PDF line
+     * @param currentLine line being parsed
+     * @param congress congress map
+     * @param name name of congress member
+     */
     public  void parseDataFromLine(String currentLine, HashMap<String,CongressMember> congress, String name){
 
         // creates a temporary transaction to be added to congress person at end
@@ -465,18 +498,6 @@ public class FileParser {
 
 
 
-
-                    //if (tempMember.transactions.containsKey(Temp.Ticker)){
-
-                        /*
-                    } else {
-                        ArrayList<Transaction> TempArray = new ArrayList<>();
-                        TempArray.add(Temp);
-                        congress.get(name).transactions.put(Temp.StockTicker,TempArray);
-                    }
-
-                         */
-                    //congress.get(NameIndex).transactions.add(Temp);
                 } catch (StringIndexOutOfBoundsException e){
                     // catch all for lines that create an error because they don't contain the correct formating
 
@@ -490,6 +511,13 @@ public class FileParser {
 
 
     // returns the sales type purchase is true selling is false
+
+    /**
+     * returns if sale or purchase
+     * @param currentLine line being parsed
+     * @param index were to start
+     * @return returns s if sale p if purchase e if Exchange
+     */
     public char getSaleType(String currentLine,int index){
         // moves index to the correct space
         index -= 4;
@@ -504,6 +532,12 @@ public class FileParser {
 
 
     // checks if a line is a stock trade and not another asset or invalid line
+
+    /**
+     * checks if line is a stock trade
+     * @param currentLine string being parsed
+     * @return true if stock trade false if not
+     */
     public Boolean isStockTrade(String currentLine){
 
 
@@ -528,6 +562,13 @@ public class FileParser {
 
     // gets the next unprocessed transaction string
     // it's all added to one line because variations in the documents made it easier to parse on large string rather than several split up ones
+
+    /**
+     * combines several scanner line to get next line to be parsed
+      * @param scan scanner object
+     * @param line current line
+     * @return string with several scanner lines merged
+     */
     public  String getNextLine(Scanner scan,String line){
 
         // used to combine all lines were the transaction info is stores
@@ -574,6 +615,13 @@ public class FileParser {
 
 
     // returns the plain text of the pdf for some reason this has some variability that I believe has been accounted for in the text parser
+
+    /**
+     * gets the string version of a pdf
+      * @param Path path to pdf
+     * @return string version of pdf
+     * @throws IOException
+     */
     public String ReturnPDFText(String Path) throws IOException {
 
         // loads path to pdf
@@ -595,6 +643,12 @@ public class FileParser {
 
     }
 
+    /**
+     * converts jsons of transactions into a transaction list and adds to congress
+     * @param stockTickers list of stock tickers
+     * @param congress congress map
+     * @param name name of congress member
+     */
     public void deSerlizeTransaction(ArrayList<String> stockTickers, HashMap<String,CongressMember> congress, String name) {
 
         System.out.println(name);
@@ -656,6 +710,13 @@ public class FileParser {
 
         }
 
+    /**
+     * loads the price data object for the transactions of a congress member
+     * @param name name of congress member
+     * @param congress congress map
+     * @throws MalformedURLException
+     * @throws URISyntaxException
+     */
     public void loadPriceDataFromTransactions(String name, HashMap<String,CongressMember> congress) throws MalformedURLException, URISyntaxException {
 
 
@@ -690,6 +751,12 @@ public class FileParser {
         }
 
     }
+
+    /**
+     * converts a date into the format needed to get info from stock website
+     * @param date original date
+     * @return altered date
+     */
     public String convertDate(String date){
         String[] splitDate = date.split("/");
         if (splitDate[1].length() < 2){
@@ -700,12 +767,26 @@ public class FileParser {
         }
         return "";
     }
+
+    /**
+     * returns the string version of a json file for a stock ticker for a url
+     * @param Ticker stock getting data for
+     * @return string version of json
+     * @throws MalformedURLException
+     * @throws URISyntaxException
+     */
     public String getJsonTextFromUrl(String Ticker) throws MalformedURLException, URISyntaxException {
         String url = "https://api.stockanalysis.com/api/symbol/s/"+Ticker.toUpperCase()+"/history?range=10Y&p";
         return getJsonText(url);
     }
 
 
+    /**
+     * gets the price data object from a json for a date
+     * @param json json string text
+     * @param Date date being grabbed
+     * @return
+     */
     public PriceData getPriceforDate(String json,String Date){
         PriceData price = null;
 
@@ -728,6 +809,12 @@ public class FileParser {
 
         return price;
     }
+
+    /**
+     * gets the price data from the string form a json
+     * @param json string being grabbed from
+     * @return pricedata object from string
+     */
     public PriceData deSerialize(String json){
 
         PriceData Temp = null;
@@ -742,6 +829,13 @@ public class FileParser {
     }
 
 
+    /**
+     * gets the json text from a url
+     * @param urlString path of url
+     * @return string version of json
+     * @throws URISyntaxException
+     * @throws MalformedURLException
+     */
     public String getJsonText(String urlString) throws URISyntaxException, MalformedURLException {
 
         String JsonText = "";
@@ -762,6 +856,12 @@ public class FileParser {
         return  JsonText;
     }
 
+    /**
+     * serilizes a object into a json string
+     * @param object object being serilized
+     * @return string version of json
+     * @param <T> a object type to serilize
+     */
     public <T> String serialize(T object){
         Gson gson = new Gson();
         return gson.toJson(object);
@@ -770,6 +870,12 @@ public class FileParser {
     }
 
 
+    /**
+     * takes transactions for a congress member and turns them into json files
+     * @param name congress member being converted
+     * @param congress congress map
+     * @throws IOException
+     */
     public void serilizeJsonFromTransactions(String name, HashMap<String,CongressMember> congress) throws IOException {
 
 
@@ -845,35 +951,13 @@ public class FileParser {
 
 
 
-
-        /*
-
-         static  public String serialize(){
-
-        PriceData test = new PriceData("test",10.2,1.51,55.1,1);
-
-        Gson gson = new Gson();
-        return gson.toJson(test);
     }
 
-
-        PrintWriter out = new PrintWriter("filename.json");
-        StringBuilder test = new StringBuilder();
-        test.append("[");
-        test.append(serialize());
-        test.append(",");
-        test.append(serialize());
-        test.append("]");
-        out.println(test);
-        out.close();
-
-        */
-
-
-
-
-
-    }
+    /**
+     * gets a list of congress names from all filling zips
+     * @return returns list of congress names
+     * @throws FileNotFoundException
+     */
     public  ArrayList<String> extractFullNameListFromAllZips () throws FileNotFoundException {
         ArrayList<String> names = new ArrayList<>();
         int currentYear = Year.now().getValue();
@@ -888,6 +972,14 @@ public class FileParser {
         }
         return  names;
     }
+
+    /**
+     * checks if a date is closer to the current date then anouther
+     * @param date1 first date being compared
+     * @param date2 secod date being compared
+     * @return true if date one is close false if not
+     * @throws ParseException
+     */
     public boolean isDatesCloserToPresent(String date1,String date2) throws ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date dateOne = dateFormat.parse(date1);
@@ -902,6 +994,13 @@ public class FileParser {
 
     }
 
+    /**
+     * adds the latest transactions sense a date to a congress object
+     * @param congress map of congress
+     * @param date date being checked from
+     * @throws FileNotFoundException
+     * @throws ParseException
+     */
     public void UpdateLatesetTransactionstoCongress(HashMap<String,CongressMember> congress,String date) throws FileNotFoundException, ParseException {
 
         //1/16/2025
@@ -967,6 +1066,14 @@ public class FileParser {
         }
     }
 
+    /**
+     * gets a list of congress names from a filling zip
+     * @param fileName name of file
+     * @param Names list of names
+     * @return list of names
+     * @throws FileNotFoundException
+     */
+
     public ArrayList<String> extractFullNameListFromZip(String fileName,ArrayList<String> Names) throws FileNotFoundException {
         ArrayList<String> names = Names;
         // stores the path to the xml document that has all fillings listed for a year
@@ -1009,6 +1116,12 @@ public class FileParser {
         return names;
     }
 
+    /**
+     * gets the pdf data for only the pdf identfiers not all pdfs in a directory
+     * @param name name of congress member
+     * @param congress map of congress
+     * @return
+     */
     public HashMap<String, ArrayList<Transaction>> loadPDFDataFromPDfIdentifiers(String name, HashMap<String,CongressMember> congress) {
 
 

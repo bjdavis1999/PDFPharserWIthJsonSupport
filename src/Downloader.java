@@ -11,14 +11,23 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+/**
+ * used to download files from the web like PDF files and filing zip
+ */
 public class Downloader {
 
 
 
 
 
-// loops through the download zip function to download all needed files
+// loops through the download zip function to download all necessary files
+
+    /**
+     * downloads all zip folders that hold the filling ids for all congress members
+     *
+     * @throws IOException
+     * @throws URISyntaxException
+     */
     void downloadAllZips() throws IOException, URISyntaxException {
 
         // used to figure out how many zips to download
@@ -38,7 +47,18 @@ public class Downloader {
 
     }
 
-    // downloads a zip from the congress website for a given year file  contains a list of all fillings for a specific year
+    /**
+     * downloads a zip file for a given year this contains all the fillings for that year
+     *
+     *
+     *
+     * @param name name is used to get the correct year
+     * @param dirPath used to put a file in the correct location
+     * @throws IOException
+     * @throws URISyntaxException
+     */
+
+    // downloads a zip from the congress website for a given year file contains a list of all fillings for a specific year
     private void downloadZip(int name,Path dirPath) throws IOException, URISyntaxException {
 
         // used to reference what to name a file and were to store it
@@ -66,7 +86,13 @@ public class Downloader {
 
     }
 
-
+    /**
+     * Downloads all PDFs for a congress member based of the stored file id
+     * @param name
+     * @param congress
+     * @throws IOException
+     * @throws URISyntaxException
+     */
     // downloads all pdf files using the data extracted from zips stores files in a folder based on the congresspersons last name
     void downloadAllPDF(String name, HashMap<String,CongressMember> congress) throws IOException, URISyntaxException {
 
@@ -102,7 +128,15 @@ public class Downloader {
     }
 
 
-
+    /**
+     * downloads a PDF from using a file id and year
+     *
+     * @param DocID used to identify the document
+     * @param Year year document was filed
+     * @param name the name of the congress member this document belongs two
+     * @throws IOException
+     * @throws URISyntaxException
+     */
 
     // used to download a single pdf file using a file id and a year name just used to store it in the correct location
     private void downloadPDF(String DocID,String Year,String name) throws IOException, URISyntaxException {

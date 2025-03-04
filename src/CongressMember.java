@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+/**
+ * this object stores a congress member with all there transactions
+ */
 public class CongressMember {
     /*
     * used to store data about a congress member

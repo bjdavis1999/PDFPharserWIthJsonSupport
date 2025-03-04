@@ -1,3 +1,6 @@
+/**
+ * stores a transaction date of a transaction type of transaction amount spent and price of stock
+ */
 public class Transaction {
     /*
     * used to store a stock transaction
@@ -18,6 +21,14 @@ public class Transaction {
     // open close high low
     PriceData priceData;
 
+    /**
+     * used to serilize a transaction from a json
+     * @param Ticker name of stock
+     * @param Date date of purchase
+     * @param PurchaseMin minimum amount spent
+     * @param PurchaseMax maximum amount spent
+     * @param priceData stock price for transaction date
+     */
     Transaction(String Ticker,String Date,int PurchaseMin,int PurchaseMax, PriceData priceData){
         this.Ticker = Ticker;
         this.Date = Date;

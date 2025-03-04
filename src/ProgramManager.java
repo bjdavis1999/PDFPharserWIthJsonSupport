@@ -4,6 +4,10 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * used to manage the program handles swing and processing functions
+ */
+
 public class ProgramManager
 /*
 * this Class is used to handle loading running the functions of program via Manager classes
@@ -21,8 +25,9 @@ public class ProgramManager
 
 {
     // manager object declarations go here there should never be more than one of any manager object
-    // as its meant to process all data of its type and is where all data of its type will be stored
+    // its meant to process all data of its type and is where all data of its type will be stored
     FileManager fileManager = new FileManager();
+    // used to store all congress members in memory
     HashMap<String,CongressMember> congress = new HashMap<>();
 
 
@@ -31,6 +36,13 @@ public class ProgramManager
     * checks to make sure data exists and run appropriates functions
     * after it will start the application loop
     * */
+
+    /**
+     * constructor runs start and update functions the swing gui (when implemented)
+     * @throws IOException
+     * @throws URISyntaxException
+     * @throws ParseException
+     */
     ProgramManager() throws IOException, URISyntaxException, ParseException {
 
         // the first thing code does is verifiers any files it may need
@@ -38,6 +50,8 @@ public class ProgramManager
 
         // next, it updates congress data if needed
         updateCongressData();
+
+        System.out.println("done");
 
 
         // were the start of the program loop and ui goes
@@ -49,6 +63,12 @@ public class ProgramManager
     // updates congress data and JSON to include the latest stock information and any
     // new reported transactions
 
+    /**
+     * updates the congress object with all congress members with transaction sense last loaded date then updates JSON files
+     * @throws IOException
+     * @throws ParseException
+     * @throws URISyntaxException
+     */
     private void updateCongressData() throws IOException, ParseException, URISyntaxException {
 
 
@@ -117,6 +137,11 @@ public class ProgramManager
 
     }
 
+    /**
+     * will load all JSON files into the congress object if the file is missing, it will get the PDF and parse it then generate the JSON file
+     * @throws IOException
+     * @throws URISyntaxException
+     */
     public void setupStartUpFiles() throws IOException, URISyntaxException {
 
         boolean loadedPDF = false;
